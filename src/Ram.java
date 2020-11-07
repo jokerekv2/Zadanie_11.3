@@ -16,11 +16,11 @@ public class Ram extends Component implements Overclockable {
     public void overclock() throws OverclockErrorException {
         double temperature = baseTemperature;
         double clocking = this.clocking;
-        if (temperature < maxSafeTemperature) {
-            this.clocking = clocking + 100;
+        if (temperature + 15 < maxSafeTemperature) {
+            this.clocking = clocking + RAM_OVERCLOCKING_VALUE;
             baseTemperature = temperature + 15;
         } else {
-            throw new OverclockErrorException("Za wysoka temperatura! Dalej nie można już podkręcać.");
+            throw new OverclockErrorException("Za wysoka temperatura ramu! Dalej nie można już podkręcać.");
         }
     }
 
@@ -58,6 +58,6 @@ public class Ram extends Component implements Overclockable {
 
     @Override
     public String toString() {
-        return super.toString() + ", aktualne taktowanie: " + clocking + " MHz";
+        return "Ram : " + super.toString() + ", pojemność: " + capacity + ", aktualne taktowanie: " + clocking + " MHz";
     }
 }

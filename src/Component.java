@@ -33,6 +33,7 @@ abstract class Component {
         this.serialNumber = serialNumber;
     }
 
+
     @Override
     public String toString() {
         return name + " " + producer;

@@ -1,4 +1,4 @@
-public class OverclockErrorException extends Exception {
+public class OverclockErrorException extends RuntimeException {
     public OverclockErrorException(String message) {
         super(message);
     }

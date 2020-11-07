@@ -14,4 +14,7 @@ public class HardDrive extends Component{
         this.capacity = capacity;
     }
 
+    public String toString() {
+        return "Dysk twardu: " + super.toString() + ", Pojemność: " + capacity + "\n";
+    }
 }

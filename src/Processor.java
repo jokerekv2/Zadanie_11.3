@@ -14,11 +14,11 @@ public class Processor extends Component implements Overclockable {
     public void overclock() throws OverclockErrorException {
         double temperature = baseFrequencyTemperature;
         double frequency = baseFrequency;
-        if (temperature < maxSafeTemperature) {
-            baseFrequency = frequency + 0.1;
+        if (temperature + 10 < maxSafeTemperature) {
+            baseFrequency = frequency + PROCESSOR_OVERCLOCKING_VALUE;
             baseFrequencyTemperature = temperature + 10;
         } else {
-            throw new OverclockErrorException("Za wysoka temperatura! Dalej nie można już podkręcać.");
+            throw new OverclockErrorException("Za wysoka temperatura procesora! Dalej nie można już podkręcać.");
         }
     }
 
@@ -48,6 +48,6 @@ public class Processor extends Component implements Overclockable {
 
     @Override
     public String toString() {
-        return super.toString() + ", aktualna częstotliwość: " + baseFrequency + " GHz";
+        return "Procesor: " + super.toString() + ", aktualna częstotliwość: " + baseFrequency + " GHz";
     }
 }
